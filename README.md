@@ -19,5 +19,4 @@ This github repo aims to introduce different ciphers, some strategies to solve t
 * [Practice sets](https://scilympiad.com/sopractice/Docs/UsefulDocs)
 * [Science Olympiad 2021 Rules Manual](https://www.soinc.org/sites/default/files/uploaded_files/Science.Olympiad.Logistics.2021.pdf)
 * [Cryptanalysis Hints](https://www3.nd.edu/~busiforc/handouts/cryptography/cryptography%20hints.html)
-* [K1 Alphabet example](https://toebes.com/Ciphers/Solving%20a%20K1%20Alphabet.htm)
 * [The Cryptogram by ACA](https://www.cryptogram.org/wp-content/themes/wp-opulus-child/images/SampleCryptogram.pdf)
