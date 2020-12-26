@@ -259,5 +259,56 @@ def MonoAlphaCipherHelper(text):
     return
 
 def decrypt_BF(ciphertext, matchrate=0.8):
+    """
+    A brute force approach to decipher any mono-alphabetic substitution ciphers
+    THIS PROGRAM DOESNOT WORK: generating 26! list is impossible, needs another way to generate permutations
+    """
+    
+    # use a spellchecker to check whether words are in dictionary
+    from spellchecker import SpellChecker
+    # create an English spell checker
+    spell = SpellChecker(language=u'en')
+    
+    # set the criterion for the number of matched words
+    wordsCount = len(spell.split_words(ciphertext))
+    wordsMatchCountMin = int(matchrate*wordsCount)
+    
+    # create a list of alphabets for ct
+    cipher = [None]*26
+    # assign them to letters
+    for i in range(26):
+        cipher[i] = chr(i+ord('A'))
+    
+    # generate all possible permutations
+    import itertools 
+    plain_lists = list(itertools.permutations(cipher))
+    
+    for i in range(len(plain_lists)):
+        # create the plain list
+        plain = plain_lists[i]
+        
+        # create the decipher dict
+        decipherDict = {}
+        # iterate 'A' to 'Z' 
+        for seq in range(26):
+            # add letter and its count to dict
+            decipherDict.update({ cipher[seq]: plain[seq]})
+        
+        # decrypt with the current decipher table
+        decrypted = decrypt(ciphertext, decipherDict)
+        # split the text into a list of words
+        wordsList = spell.split_words(decrypted)
+        wordsCount = len(wordsList)
+        
+        print(i)
+        # check whether it is a real word
+        dictWordsList = spell.known(wordsList)
+        if len(dictWordsList) >= wordsMatchCountMin:
+            print("Find dictionary words at shift ", shift)
+            printCipherTable(decipherDict, isInverse=True)
+            return decrypted
+    
+    print("All trials failed")
+    return ""
     
     return

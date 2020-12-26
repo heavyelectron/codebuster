@@ -10,7 +10,8 @@ This github repo aims to introduce different ciphers, some strategies to solve t
 ## Ciphers
 
 * [Caesar Cipher](Caesar_Cipher/Readme.ipynb)
-* [Mono-alphabetic Substitution](Mono-alphabetic/) 
+* [Mono-alphabetic Substitution](Mono-alphabetic/Readme.ipynb)
+* [Affine Cipher](Affine/Readme.ipynb)
 
 
 ## Resources
