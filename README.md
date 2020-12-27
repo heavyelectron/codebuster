@@ -11,7 +11,14 @@ This github repo aims to introduce different ciphers, some strategies to solve t
 
 * [Caesar Cipher](Caesar_Cipher/Readme.ipynb)
 * [Mono-alphabetic Substitution](Mono-alphabetic/Readme.ipynb)
-* [Affine Cipher](Affine/Readme.ipynb)
+* [Affine Cipher](Affine_Cipher/Readme.ipynb)
+* [Vigenère Cipher](Vigenère_Cipher/Readme.ipynb)
+* [Baconian Cipher](Baconian_Cipher/Readme.ipynb)
+* [Hill Cipher](Hii_Cipher/Readme.ipynb)
+
+## Useful tools
+* [Modular Multiplicative Inverse](Modular/Readme.ipynb)
+* [Commonly used tables](Tables/Readme.ipynb)
 
 
 ## Resources
