@@ -14,7 +14,7 @@ This github repo aims to introduce different ciphers, some strategies to solve t
 * [Affine Cipher](Affine_Cipher/Readme.ipynb)
 * [Vigenère Cipher](Vigenère_Cipher/Readme.ipynb)
 * [Baconian Cipher](Baconian_Cipher/Readme.ipynb)
-* [Hill Cipher](Hii_Cipher/Readme.ipynb)
+* [Hill Cipher](Hill_Cipher/Readme.ipynb)
 
 ## Useful tools
 * [Modular Multiplicative Inverse](Modular/Readme.ipynb)
