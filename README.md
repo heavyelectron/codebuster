@@ -15,6 +15,11 @@ This github repo aims to introduce different ciphers, some strategies to solve t
 * [Vigenère Cipher](Vigenère_Cipher/Readme.ipynb)
 * [Baconian Cipher](Baconian_Cipher/Readme.ipynb)
 * [Hill Cipher](Hill_Cipher/Readme.ipynb)
+* [Pollux Cipher](Pollux_Cipher/Readme.ipynb)
+* [Morbit Cipher](Morbit_Cipher/Readme.ipynb)
+* [RSA Cipher](RSA_Cipher/Readme.ipynb)
+* [Xenocrypt (TBD)](./)
+
 
 ## Useful tools
 * [Modular Multiplicative Inverse](Modular/Readme.ipynb)
@@ -28,3 +33,4 @@ This github repo aims to introduce different ciphers, some strategies to solve t
 * [Science Olympiad 2021 Rules Manual](https://www.soinc.org/sites/default/files/uploaded_files/Science.Olympiad.Logistics.2021.pdf)
 * [Cryptanalysis Hints](https://www3.nd.edu/~busiforc/handouts/cryptography/cryptography%20hints.html)
 * [The Cryptogram by ACA](https://www.cryptogram.org/wp-content/themes/wp-opulus-child/images/SampleCryptogram.pdf)
+* [List of Ciphers by ACA](https://www.cryptogram.org/resource-area/cipher-types/)
