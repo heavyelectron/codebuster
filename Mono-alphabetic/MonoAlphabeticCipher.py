@@ -11,9 +11,48 @@ EnglishLetterFrequencyDict = {
     'H': '5.49%',
     'L': '4.14%',
     'D': '3.99%',
-    'C': '3.06%'  # more to be added
+    'C': '3.06%',
+    'U': '2.71%',
+    'M': '2.53%',
+    'F': '2.30%',
+    'P': '2.00%',
+    'G': '1.96%',
+    'W': '1.92%',
+    'Y': '1.73%',
+    'B': '1.54%',
+    'V': '0.99%',
+    'K': '0.67%',
+    'X': '0.19%',
+    'J': '0.16%',
+    'Q': '0.11%',
+    'Z': '0.09%'
 }
 
+
+def printEnglishAlphabetFrequency():
+    """
+    Format the English Alphabet Frequency into a Markdown table
+    """
+    
+    letters  = list(EnglishLetterFrequencyDict.keys()) 
+    freqs = list(EnglishLetterFrequencyDict.values())
+    
+    # print a table of counts
+    LLine1 = '| Letter    |'
+    LLine1 += ''.join([letters[i]+' | ' for i in range(13)])
+    LLine2 = '| Letter    |'
+    LLine2 += ''.join([letters[i+13]+' | ' for i in range(13)])
+    FLine1 = '| Frequency |'
+    FLine1 += ''.join([freqs[i]+' | ' for i in range(13)])
+    FLine2 = '| Frequency |'
+    FLine2 += ''.join([freqs[i+13]+' | ' for i in range(13)])
+    
+    print(LLine1)
+    print("|----|--|--|--|--|--|--|--|--|--|--|--|--|--|")
+    print(FLine1)
+    print(LLine2)
+    print(FLine2)
+    return
 
 def createCipherDict():
     """

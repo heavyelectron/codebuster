@@ -71,17 +71,16 @@ def adjugateMatrix(m):
     # create a matrix for adjugate 
     adj = np.ndarray(shape=(cols, rows), dtype=m.dtype)
     
-    # define an alternating sign
-    sign = 1
     # iterate over iterms
     for i in range(rows):
         for j in range(cols):
             # get cofactor
             cf = cofactor(m,i,j)
+            # find the sign 
+            sign = 1 if (i+j)%2 ==0 else -1
             # note the order of j,i due to transpose
             adj[j,i] = sign*determinant(cf)
-            # flip the sign
-            sign = -sign
+
     # all done 
     return adj
     

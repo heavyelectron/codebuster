@@ -45,9 +45,14 @@ The guides are composed with jupyter notebook. You may read it simply from the g
 * [scilympiad.com Practice Sets](https://scilympiad.com/sopractice/Docs/UsefulDocs) Complete competition sets
 * [Cryptograms by Gregory V. Bard](http://www.gregorybard.com/cryptogram.html), Aristocrats, Patristocrats, Xenocrypts examples of different types and different difficulty levels
 * [Solve a Puzzle by ACA](https://www.cryptogram.org/resource-area/solve-a-cipher/) Generated substitution problems for practice with excellent user interface
-* [toebes.com Test Generator](https://toebes.com/codebusters/)  
-* Some examples are included in the cipher sections in this website. We will try to collect all the python routines into a package.
+* [toebes.com Test Generator](https://toebes.com/codebusters/) 
+* [North Carolina 2018-2019](https://ncscienceolympiad.ncsu.edu/resources/high-school/codebusters/) Check also their Overview 
 
+  - 2019 Regional [Test1](https://ncscienceolympiad.ncsu.edu/wp-content/uploads/2019/04/NC-Regional-Test-1.pdf), [Answer Key](https://ncscienceolympiad.ncsu.edu/wp-content/uploads/2019/04/NC-Regional-Test-1-Answer-Key.pdf)
+  - 2019 Regional [Test2](https://ncscienceolympiad.ncsu.edu/wp-content/uploads/2019/04/NC-Regional-Test-2.pdf), [Answer Key](https://ncscienceolympiad.ncsu.edu/wp-content/uploads/2019/04/NC-Regional-Test-2-Answer-Key.pdf)
+  - [2018 State](https://ncscienceolympiad.ncsu.edu/wp-content/uploads/2018/08/2018-Codebusters-State-C.pdf)
+  
+* Some examples are included in the cipher sections in this website. We will try to collect all the python routines into a package.
 
 
 
