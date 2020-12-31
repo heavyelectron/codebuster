@@ -1,7 +1,7 @@
 ### Pollux Cipher
 
 import MorseCode
-from MorseCode import MORSE_CODE_DICT, MORSE_CODE_DECIPHER_DICT, MORSE_CODE_DASH, MORSE_CODE_DOT, MORSE_CODE_DIV
+from MorseCode import MORSE_CODE_DICT, MORSE_CODE_DECIPHER_DICT, MORSE_CODE_DASH, MORSE_CODE_DOT, MORSE_CODE_DIV,MORSE_CODE_UNKNOWN
 
 
 ### Pollux Cipher Key is defined as a dict of lists
@@ -11,10 +11,9 @@ from MorseCode import MORSE_CODE_DICT, MORSE_CODE_DECIPHER_DICT, MORSE_CODE_DASH
 
 ### Decipher Key is defined as a dict 
 # DecipherKey = { 1: 'x', 2: 'x', 3: '.', 4: 'x' .... }
-# If the symbol is unkown, we use MORSE_CODE_UNKNOWN='$'
-#    e.g., 6: '$'
+# If the symbol is unkown, we use MORSE_CODE_UNKNOWN='?'
+#    e.g., 6: '?'
 
-MORSE_CODE_UNKNOWN='$'
 
 def keyGenerator(counts=(4,3,3)):
     """

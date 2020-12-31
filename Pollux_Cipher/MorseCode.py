@@ -7,9 +7,23 @@ MORSE_CODE_DOT_S = '.'
 MORSE_CODE_DOT = '•' 
 MORSE_CODE_DOT_L = '●'
 MORSE_CODE_DIV = 'x'
-MORSE_CODE_UNKNOWN = '$'
+MORSE_CODE_UNKNOWN = '?'
 
 MORSE_CODE_DICT = {'A': '•-', 'B': '-•••', 'C': '-•-•', 
+                    'D': '-••', 'E': '•', 'F': '••-•', 'G': '--•', 
+                    'H': '••••', 'I': '••', 'J': '•---', 'K': '-•-', 
+                    'L': '•-••', 'M': '--', 'N': '-•', 
+                    'O': '---', 'P': '•--•', 'Q': '--•-', 
+                    'R': '•-•', 'S': '•••', 'T': '-', 
+                    'U': '••-', 'V': '•••-', 'W': '•--', 
+                    'X': '-••-', 'Y': '-•--', 'Z': '--••', 
+                    '1': '•----', '2': '••---', '3': '•••--', 
+                    '4': '••••-', '5': '•••••', '6': '-••••', 
+                    '7': '--•••', '8': '---••', '9': '----•', 
+                    '0': '-----' 
+                    }
+
+MORSE_CODE_DICT_EXT = {'A': '•-', 'B': '-•••', 'C': '-•-•', 
                     'D': '-••', 'E': '•', 'F': '••-•', 'G': '--•', 
                     'H': '••••', 'I': '••', 'J': '•---', 'K': '-•-', 
                     'L': '•-••', 'M': '--', 'N': '-•', 
@@ -38,10 +52,7 @@ MORSE_CODE_DECIPHER_DICT = {'•-': 'A', '-•••': 'B', '-•-•': 'C',
                             '•----': '1', '••---': '2', '•••--': '3', 
                             '••••-': '4', '•••••': '5', '-••••': '6', 
                             '--•••': '7', '---••': '8', '----•': '9', 
-                            '-----': '0', 
-                            '--••--': ', ', '•-•-•-': '.', '••--••': '?', 
-                            '-••-•': '/', '-••••-': '-', 
-                            '-•--•': '(', '-•--•-': ')'}
+                            '-----': '0'}
 
 
 def encrypt(message):
@@ -110,7 +121,7 @@ def decrypt(message, helper=False):
                  # adding space to separate words 
                 decipher += ' '
                 if helper:
-                    decipher_aligned += ' '
+                    decipher_aligned += '/'
             else: 
                 # accessing the keys using their values (reverse of encryption)
                 dletter = MORSE_CODE_DECIPHER_DICT.get(code)
