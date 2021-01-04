@@ -107,6 +107,38 @@ def generate_key(bits=(2,6), debug=False, e=None):
     
     return (d,n),(e,n)
 
+
+def generate_key_pq(p, q, debug=False, e=None):
+    """
+    generate RSA key with p, q
+    {debug} = True to print  
+    """
+    
+    # n = p*q
+    n = p*q
+    # lambda(n) = lcm(p-1, q-1)
+    lambda_n = lcm(p-1, q-1)
+   
+    # choose e to be coprime with lambda_n
+    if e is None:
+        e = 1
+        while e<=1 or gcd(e, lambda_n) != 1 :
+            e = random.randint(2, lambda_n)
+    
+    
+    # get d as  d*e mod lambda_n = 1
+    d = invert(e, lambda_n)
+    
+    if debug:
+        print("RSA Key Generator")
+        print("p= ", p, " q= ", q)
+        print("lambda(n) =", lambda_n)
+        print("Public/Encryption Key  (e, n):", (e, n))
+        print("Private/Decryption Key (d, n):", (d, n))
+    
+    return (d,n),(e,n)
+
+
 def encrypt(plain, key):
     """
     Encrypt {plain} (an integer) with the public key (e, n)
