@@ -6,7 +6,7 @@ import random
 
 def gcd(p,q):
     """
-    calculate the gcd(greatest common divider) of two positive integers
+    calculate the gcd(greatest common divisor) of two positive integers
     """
     while q != 0:
         p, q = q, p%q
@@ -14,7 +14,7 @@ def gcd(p,q):
 
 def lcm(p,q):
     """
-    calculate the lcm(least common multiplier) of two positive integers
+    calculate the lcm(least common multiple) of two positive integers
     """
     return (p*q)//gcd(p,q)
 
@@ -50,15 +50,60 @@ def next_prime(n):
         i += 1
     return     
 
-def invert(a, m):
+def invert_bf(a, m):
     """
-    Modular multiplicative inverse  n^{-1} mod({m}). 
+    Modular multiplicative inverse  a^{-1} mod({m}).
+    with a brute force search
     """
     a = a % m 
     for x in range(1, m): 
         if ((a * x) % m == 1): 
             return x 
     return 1
+
+def invert(a, m): 
+    """
+    Modular multiplicative inverse  a^{-1} mod({m}).
+    with the extended Eucleandian algorithm
+    """
+    
+    q0, r0, t0 = 0, m, 0
+    q1, r1, t1 = 0, a%m, 1
+    
+    while r1 != 1:
+        q, r = divmod(r0, r1)
+        t = t0 - q*t1
+        q0, r0, t0 = q1, r1, t1
+        q1, r1, t1 = q, r, t
+    return t1 % m
+
+
+def powmod(a, b, m):
+    """
+    Compute a^b mod (m) with the Fast Modular Exponentiation algorithm
+    compute a^1, a^2, a^4, a^8 .. mod m, since a^{2^n} mod = (a^{2^{n-1}} mod)^2 mod 
+    It runs much faster than a**b %m  
+    """
+    
+    # q, r keep quotient, remainder of b/2 
+    # initial value
+    q, r = b, 0
+    # track a^{2n} mod m
+    apowmod = a % m 
+    # set return result to 1 at first
+    result = 1
+    # iterative till the quotient is 0
+    while q>0:
+        # get the quotient, remainder
+        q, r = divmod(q, 2)
+        # if that bit is non-zero
+        if r==1:
+            # multiply the a^{2^n} mod to result
+            result = result*apowmod % m
+        # compute a^{2^n} mod from a^{2^{n-1}} mod
+        apowmod = apowmod**2 % m
+    # all done     
+    return result
 
 def generate_prime(bits_min=0, bits_max=32):
     """
@@ -144,14 +189,14 @@ def encrypt(plain, key):
     Encrypt {plain} (an integer) with the public key (e, n)
     """
     e, n = key
-    return plain**e % n 
+    return powmod(plain, e, n)
     
 def decrypt(cipher, key):
     """
     decrypt the {cipher} (an integer) with the private key (d, n)
     """
     d, n = key
-    return cipher**d % n
+    return powmod(cipher, d, n)
 
 def fermat_factors(n) :
     """
