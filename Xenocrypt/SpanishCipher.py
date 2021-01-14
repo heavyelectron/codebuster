@@ -3,12 +3,24 @@ SPANISH_alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G',
                     'O', 'P', 'Q', 'R', 'S', 'T', 
                     'U', 'V', 'W', 'X', 'Y', 'Z']
 
+SPANISH_alphabet_by_frequency = [
+    'E', 'A', 'O', 'S', 'N',
+    'R', 'I', 'L', 'U', 'D', 'T',
+    'C', 'M', 'P', 'B', 'H',
+    'Q', 'Y', 'V', 'G', 'F',
+    'J', 'Z', 'Ñ', 'X', 'K', 'W']
+
+
 ENGLISH_alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 
                     'H', 'I', 'J', 'K', 'L', 'M', 'N',
                     'O', 'P', 'Q', 'R', 'S', 'T', 
                     'U', 'V', 'W', 'X', 'Y', 'Z']
 
+
+
+
 alphabet = SPANISH_alphabet
+alphabet_freq = SPANISH_alphabet_by_frequency
 
 ALPHABET_UNKNOWN = '-'
 
@@ -140,6 +152,7 @@ def decryptHelper(ciphertext, key={}):
     print('| Cipher | ' + '| '.join([letter  for letter in alphabet])+'|')
     print('|:------:|'  + '--|'*alphabet_length)
     print('|Freqnecy|' + '|'.join([str(count).rjust(2) for count in countDict.values()])+'|')
+
     
     decipher_line = '| Plain  |'
     for letter in alphabet:
@@ -148,6 +161,13 @@ def decryptHelper(ciphertext, key={}):
         decipher_line += ' '+ dl + '|'
             
     print(decipher_line)
+
+    alphabet_avail = ''
+    for letter in alphabet_freq:
+        if letter not in key.values() :
+            alphabet_avail += letter 
+    print("Letters available (by Frequency):" + alphabet_avail)
+    
     
     plaintext = decrypt(ciphertext, key)
     
