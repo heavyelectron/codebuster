@@ -29,6 +29,24 @@ EnglishLetterFrequencyDict = {
 }
 
 
+ENGLISH_alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 
+                    'H', 'I', 'J', 'K', 'L', 'M', 'N',
+                    'O', 'P', 'Q', 'R', 'S', 'T', 
+                    'U', 'V', 'W', 'X', 'Y', 'Z']
+
+ENGLISH_alphabet_by_frequency = ['E', 'T', 'A', 'O', 'I', 'N', 
+                                 'S', 'R', 'H', 'L', 'D', 'C', 
+                                 'U', 'M', 'F', 'P', 'G', 'W', 
+                                 'Y', 'B', 'V', 'K', 'X', 'J', 
+                                 'Q', 'Z']
+
+
+alphabet = ENGLISH_alphabet
+alphabet_freq = ENGLISH_alphabet_by_frequency
+
+ALPHABET_UNKNOWN = '-'
+
+
 def printEnglishAlphabetFrequency():
     """
     Format the English Alphabet Frequency into a Markdown table
@@ -56,7 +74,7 @@ def printEnglishAlphabetFrequency():
 
 def createCipherDict():
     """
-    
+    Generate randomly a cipher table
     """
     import random
     
@@ -87,6 +105,14 @@ def createCipherDict():
         cipherDict.update({plain[i]: cipher[i]})
         
     return cipherDict
+
+
+def generate_key():
+    """
+    Alias for createCipherDict
+    """
+    return createCipherDict()
+
 
 def inverseCipherDict(cipherDict):
     
@@ -188,15 +214,15 @@ def decrypt(ciphertext, decipher):
     result = "" 
   
     # iterate over the input text
-    for i in range(len(ciphertext)): 
-        # get the character
-        char = ciphertext[i] 
+    for char in ciphertext: 
         # if it's a upper case letter 
-        if (char.isupper()): 
-            result += decipher.get(char)
+        if (char.isupper()):
+            dchar = decipher.get(char)
+            result += dchar if dchar is not None else ALPHABET_UNKNOWN
         # if it's a lower case letter 
         elif (char.islower()): 
-            result += decipher.get(char.upper()).lower()
+            dchar = decipher.get(char.upper())
+            result += dchar.lower() if dchar is not None else ALPHABET_UNKNOWN
         # All others including space, numbers, symbols
         else:
             # just copy it
@@ -267,6 +293,7 @@ def LetterFrequency(text):
     return freqDict
 
 
+
 def MonoAlphaCipherHelper(text):
     """
     Format the count dict {'Letter': count} into a Markdown table
@@ -295,6 +322,41 @@ def MonoAlphaCipherHelper(text):
     print("Letter with most counts:  ", letters[0:12])
     print("Most used English letters:", "ETAOINSHRDLU")
 
+    return
+
+
+def decryptHelper(ciphertext, key={}):
+    
+    countDict = LetterCounter(ciphertext.upper())
+    
+    alphabet_length = len(alphabet)
+    
+    # print a table
+    print("Cipher table and letter frequency:")
+    print('| Cipher | ' + '| '.join([letter  for letter in alphabet])+'|')
+    print('|:------:|'  + '--|'*alphabet_length)
+    print('|Freqnecy|' + '|'.join([str(count).rjust(2) for count in countDict.values()])+'|')
+
+    
+    decipher_line = '| Plain  |'
+    for letter in alphabet:
+        dl = key.get(letter)
+        dl = dl if dl is not None else ' '
+        decipher_line += ' '+ dl + '|'
+            
+    print(decipher_line)
+
+    alphabet_avail = ''
+    for letter in alphabet_freq:
+        if letter not in key.values() :
+            alphabet_avail += letter 
+    print("Letters available (by Frequency):" + alphabet_avail)
+    
+    
+    plaintext = decrypt(ciphertext, key)
+    
+    print("Ct:", ciphertext)
+    print("Pt:", plaintext)
     return
 
 def decrypt_BF(ciphertext, matchrate=0.8):
